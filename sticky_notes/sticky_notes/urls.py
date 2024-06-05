@@ -15,8 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
+# define URL patterns for the entire project
 urlpatterns = [
+    # Admin URL patern, mapping to the Django admin interface
     path('admin/', admin.site.urls),
+
+    # Include URL patterns from the 'sticky_notes_app' app
+    # All URLs from 'notes.urls' will be prefixed with 'notes/'
+    path('', include('notes.urls')),
 ]
