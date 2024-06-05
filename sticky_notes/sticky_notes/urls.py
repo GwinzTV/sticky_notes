@@ -24,5 +24,5 @@ urlpatterns = [
 
     # Include URL patterns from the 'sticky_notes_app' app
     # All URLs from 'notes.urls' will be prefixed with 'notes/'
-    path('', include('notes.urls')),
+    path('', include('sticky_notes_app.urls')),
 ]
