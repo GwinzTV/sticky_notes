@@ -22,7 +22,7 @@ def note_create(request):
             return redirect('note_list')
     else:
         form = NoteForm()
-    return render(request, 'sticky_notes_app/notes_form.html', {'form': form})
+    return render(request, 'sticky_notes_app/note_form.html', {'form': form})
 
 
 def note_detail(request, pk):
