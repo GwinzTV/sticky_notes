@@ -1,4 +1,8 @@
 # sticky_notes_app/models.py
+"""
+This file is defines the models for the app, that the views will
+interact with.
+"""
 from django.db import models
 
 

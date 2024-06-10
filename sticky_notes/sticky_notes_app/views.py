@@ -1,4 +1,10 @@
 # sticky_notes_app/views.py
+
+"""
+This file interfaces with the model to grab the information needed
+to render the templates.
+"""
+
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Note
 from .forms import NoteForm

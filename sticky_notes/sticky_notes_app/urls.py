@@ -1,4 +1,9 @@
 # sticky_notes_app/urls.py
+"""
+This file links all the urls to tehir specific views.
+And is an extension of the top-level urls.py
+"""
+
 from django.urls import path
 from .views import (
     note_update,

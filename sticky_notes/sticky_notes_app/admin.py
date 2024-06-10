@@ -1,5 +1,4 @@
 # sticky_notes_app/admin.py
-
 """
 Admin configuration for Sticky Notes App.
 

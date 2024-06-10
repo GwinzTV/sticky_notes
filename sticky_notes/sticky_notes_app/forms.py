@@ -1,7 +1,4 @@
 # sticky_notes_app/forms.py
-from django import forms
-from .models import Note
-
 """
 Forms for the Sticky Notes App.
 
@@ -10,6 +7,8 @@ the Sticky Notes App. It includes the NoteForm class, which is a ModelForm for
 the Note model. This form allows users to input data for the title and content
 fields of a note.
 """
+from django import forms
+from .models import Note
 
 
 class NoteForm(forms.ModelForm):
