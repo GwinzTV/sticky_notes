@@ -30,10 +30,13 @@ class Note(models.Model):
     author = models.ForeignKey('Author', on_delete=models.CASCADE,
                                null=True, blank=True)
 
+    def __str__(self):
+        return self.title
+
 
 class Author(models.Model):
     """
-    Model representing teh author of the task manager sticky note
+    Model representing the author of the task manager sticky note
 
     Fields:
     - name: CharField for the author's name.

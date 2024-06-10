@@ -1,5 +1,5 @@
 # sticky_notes_app/views.py
-from django.shortcuts import render, get_list_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Note
 from .forms import NoteForm
 
@@ -33,8 +33,11 @@ def note_detail(request, pk):
     :param pk: Primary key of the note.
     :return: Rendered template with details of the specific note.
     """
-    note = get_list_or_404(Note, pk=pk)
-    return render(request, 'sticky_notes_app/note_detail.html', {'note': note})
+    note = get_object_or_404(Note, pk=pk)
+    context = {
+        'note': note,
+    }
+    return render(request, 'sticky_notes_app/note_detail.html', context)
 
 
 def note_list(request):
@@ -44,11 +47,11 @@ def note_list(request):
     :param request: HTTP request object.
     :return: Rendered template with a list of notes.
     """
-    notes = Note.objects.all()
+    note = Note.objects.all()
 
     # creating a context dictionary to pass data
     context = {
-        'notes': notes,
+        'notes': note,
         'page_title': 'List of Notes',
     }
     return render(request, 'sticky_notes_app/note_list.html', context)
@@ -62,7 +65,7 @@ def note_update(request, pk):
     :param pk: Primary key of the note to be updated.
     :return: Rendered template for updating the specified note.
     """
-    note = get_list_or_404(Note, pk=pk)
+    note = get_object_or_404(Note, pk=pk)
     if request.method == 'POST':
         form = NoteForm(request.POST, instance=note)
         if form.is_valid():
@@ -82,6 +85,6 @@ def note_delete(request, pk):
     :param pk: Primary key of the note to be deleted.
     :return: Redirect to the note list after deletion.
     """
-    note = get_list_or_404(Note, pk=pk)
+    note = get_object_or_404(Note, pk=pk)
     note.delete()
     return redirect('note_list')

@@ -1,4 +1,7 @@
 <!-- sticky_notes_app/templates/base.html -->
+
+<!-- This page is the base html page which will be extended by other pages -->
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -8,6 +11,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}My Sticky Notes App{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'sticky_notes_app/styles.css' %}">
+        <style>
+            .button-link {
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                color: #fff;
+                background-color: #007bff;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+            }
+            
+            .button-link:hover {
+                background-color: #0056b3;
+            }
+        </style>
     </head>
     <body>
         <header>

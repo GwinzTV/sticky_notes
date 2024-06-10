@@ -1,6 +1,12 @@
 # sticky_notes_app/urls.py
 from django.urls import path
-from .views import note_update, note_list, note_detail, note_create, note_delete
+from .views import (
+    note_update,
+    note_list,
+    note_detail,
+    note_create,
+    note_delete
+    )
 
 urlpatterns = [
     # URL pattern for displaying a list of all notes

@@ -2,6 +2,15 @@
 from django import forms
 from .models import Note
 
+"""
+Forms for the Sticky Notes App.
+
+This module defines the forms used for creating and updating Note objects in
+the Sticky Notes App. It includes the NoteForm class, which is a ModelForm for
+the Note model. This form allows users to input data for the title and content
+fields of a note.
+"""
+
 
 class NoteForm(forms.ModelForm):
     """

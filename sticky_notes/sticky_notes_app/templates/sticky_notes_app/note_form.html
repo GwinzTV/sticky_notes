@@ -1,12 +1,18 @@
 <!-- sticky_notes_app/templates/sticky_notes_app/notes_form.html -->
 
+<!-- This page displays a form to either create or edit a note -->
+
 {% extends "base.html" %}
 
-{% block title %}Task Manager - {% if form.instance.pk %}Edit{% else %}Create{% endif %}Note{% endblock  %}
+{% block title %}Task Manager - 
+{% if form.instance.pk %}Edit {% else %}Create {% endif %}Note
+{% endblock  %}
 
 {% block content %}
-    <h2>{% if form.instance.pk %}Edit{% else %}Create{% endif %}Note</h2>
-    <form method="post" action="{% if form.instance.pk %}{% url 'note_update' pk=form.instance.pk %}{% else %}{% url 'note_create' %}{% endif %}">
+    <h2>{% if form.instance.pk %}Edit {% else %}Create {% endif %}Note</h2>
+    <form method="post" 
+    action="{% if form.instance.pk %}{% url 'note_update' pk=form.instance.pk %}
+    {% else %}{% url 'note_create' %}{% endif %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Save</button>
